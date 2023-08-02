@@ -1,0 +1,13 @@
+h1{
+    color: mediumvioletred;
+    font-size: 50px;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span{
+    font-size: 35px;
+    color: mediumvioletred;
+}

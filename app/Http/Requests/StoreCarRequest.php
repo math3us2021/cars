@@ -2,6 +2,7 @@
 
     namespace App\Http\Requests;
 
+    use Illuminate\Contracts\Validation\ValidationRule;
     use Illuminate\Foundation\Http\FormRequest;
 
     class StoreCarRequest extends FormRequest
@@ -17,7 +18,7 @@
         /**
          * Get the validation rules that apply to the request.
          *
-         * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+         * @return array<string, ValidationRule|array|string>
          */
         public function rules(): array
         {
@@ -27,10 +28,13 @@
                 'cor' => 'required|string|max:100|min:3',
                 'ano' => 'required|string|max:100|min:3',
                 'placa' => 'required|string|max:100|min:3',
-                'chassi' => 'required|string|max:100|min:3',
+                'chassi' => 'required',
                 'renavam' => 'required|string|max:100|min:3',
-                'valor' => 'required|string|max:100|min:3',
+                'valor' => 'required',
                 'type' => 'required',
+                'user_id' => '',
+                'cover' => '',
+                'state' => 'boolean',
             ];
         }
 
@@ -41,3 +45,6 @@
             ];
         }
     }
+
+
+

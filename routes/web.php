@@ -29,3 +29,6 @@
     Route::resource('products', ProductController::class);
     Route::resource('cars', CarController::class);
     });
+Route::get('/email', function () {
+    return new App\Mail\CarsCreated();
+});

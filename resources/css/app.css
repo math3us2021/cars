@@ -2,3 +2,15 @@
 
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
+.img-fluid {
+    height: 100px;
+}
+
+#search-container {
+    background-image: url("../../public/img/car_f.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    padding: 50px;
+    text-align: center;
+}

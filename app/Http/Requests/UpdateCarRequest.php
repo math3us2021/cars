@@ -30,6 +30,10 @@ class UpdateCarRequest extends FormRequest
             'chassi' => 'required|string|max:100|min:3',
             'renavam' => 'required|string|max:100|min:3',
             'valor' => 'required|string|max:100|min:3',
+            'type' => 'required|string|max:100|min:3',
+            'user_id' => '',
+            'cover' => '',
+            'state' => 'boolean',
         ];
     }
     public function messages()

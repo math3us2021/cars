@@ -15,7 +15,6 @@
             private readonly UserRepository $userRepository
         ) {
             $this->middleware(Authe::class);
-
         }
 
         public function index()

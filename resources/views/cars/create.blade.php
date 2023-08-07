@@ -4,12 +4,14 @@
 @section('content')
     <div class="container">
         <form
+            enctype="multipart/form-data"
             @if($car != null)
                 action="{{ route('cars.update', $car->id) }}" method="POST">
             @method('PUT')
             @else
                 action="{{ route('cars.store') }}" method="POST">
             @endif
+
             @csrf
             <div class="row">
                 <div class="mb-3 col-md-4">
@@ -60,13 +62,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="mb-3 col-md-8">
+                <div class="mb-3 col-md-4">
                     <label for="renavam" class="form-label">Renavam</label>
                     <input type="text" class="form-control" id="renavam" placeholder="123456789" name="renavam"
                            <?php
                            if ($car) { ?> value="{{ $car->renavam }}" <?php
                                                                       } ?>>
                 </div>
+                <div class="mb-3 ml-1 col-md-8 row">
+                    <label for="cover" class="form-label">Foto do carro</label>
+                    <input type="file"
+                           class="form-control"
+                           id="cover"
+                           name="cover"
+                           accept="image/git image/png, image/jpeg"
+                    >
+                </div>
+            </div>
+            <div class="row">
                 <div class="mb-3 col-md-4">
                     <label for="valor" class="form-label">Valor</label>
                     <input type="number" class="form-control" id="valor" placeholder="Preto" name="valor"
@@ -79,16 +92,18 @@
                     <label for="cor" class="form-label">Tipo de Veiculo</label>
                     <select class="form-control" aria-label="Default select example" name="type">
                         @foreach($types as $type)
-                            <option value="{{ $type }}" <?php
-                                                            if ($car) {
-                                                                if ($car->type == $type) {
-                                                                    echo 'selected';
-                                                                }
-                                                            } ?>>{{ $type }}</option>
+                            <option value="{{ $type }}"
+                                    <?php
+                                if ($car) {
+                                    if ($car->type == $type) {
+                                        echo 'selected';
+                                    }
+                                } ?>>{{ $type }}</option>
                         @endforeach
                     </select>
                 </div>
             </div>
+
             @if($car)
                 <input type="submit" class="btn btn-primary" value="Editar anuncio">
             @else

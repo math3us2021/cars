@@ -23,6 +23,7 @@
         {
             $cars = $this->carRepository->index();
             $user = Auth::user();
+//            dd($cars);
             return view('welcome', [
                 'cars' => $cars,
                 'user' => $user
@@ -46,8 +47,17 @@
          */
         public function store(StoreCarRequest $request)
         {
-            dd($request->validated());
-            Car::create($request->validated());
+            $user = Auth::user();
+//            dd($user);
+            $request->merge(['user_id' => $user->id]);
+
+            $coverPath = $request->hasFile('cover')
+                ? $request->file('cover')->store('covers', 'public')
+                    : null;
+//            dd($coverPath);
+            $request->merge(['cover' => $coverPath]);
+
+            $this->carRepository->store($request);
             return redirect()->route('cars.index')->with(
                 'success', 'Carro cadastrado com sucesso!'
             );

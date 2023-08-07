@@ -40,7 +40,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">
                 <a href="/dashboard" class="navbar-brand">
-                    {{--                <img src="/img/horseD.png" alt="HDC ">--}}
+{{--                    <img src="/img/fundo_car.jpg" alt="HDC ">--}}
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
